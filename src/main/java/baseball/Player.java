@@ -58,6 +58,14 @@ public class Player {
     }
 
     public boolean restart() {
-        return false;
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String restart = readLine();
+        if (restart.equals("1")) {
+            return true;
+        } else if (restart.equals("2")) {
+            return false;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }
