@@ -3,6 +3,7 @@ package baseball;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Computer {
 
@@ -21,6 +22,22 @@ public class Computer {
             }
         }
         return randomNumbers;
+    }
+
+    public boolean checkResult(List<Integer> guessNumber){
+        int strikeCount = countStrike(guessNumber);
+        int ballCount = countBall(guessNumber);
+        return true;
+    }
+
+    private int countStrike(List<Integer> guessNumber) {
+        int strikeCount = 0;
+        for(int i = 0; i < 3; i++){
+            if(Objects.equals(guessNumber.get(i), answerNumber.get(i)))
+                strikeCount++;
+
+        }
+        return strikeCount;
     }
 
 
