@@ -10,6 +10,9 @@ public class Player {
 
     private List<Integer> guessNumber = new ArrayList<>();
 
+    public List<Integer> getGuessNumber() {
+        return guessNumber;
+    }
     public void createGuessNumber(){
         String guessNumberForValid = readLine();
         if(!isValidNumbers(guessNumberForValid)){
@@ -52,5 +55,9 @@ public class Player {
 
     private boolean isValidSize(String guessNumber) {
         return guessNumber.length() == 3;
+    }
+
+    public boolean restart() {
+        return false;
     }
 }

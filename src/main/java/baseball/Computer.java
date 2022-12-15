@@ -13,7 +13,7 @@ public class Computer {
         this.answerNumber = createAnswerNumber();
     }
 
-    private List<Integer> createAnswerNumber() {
+    public List<Integer> createAnswerNumber() {
         List<Integer> randomNumbers = new ArrayList<>();
         while (randomNumbers.size() < 3) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
@@ -30,7 +30,7 @@ public class Computer {
 
         System.out.println(resultMessage(strikeCount, ballCount));
 
-        return true;
+        return strikeCount == 3;
     }
 
     private String resultMessage(int strikeCount, int ballCount) {
