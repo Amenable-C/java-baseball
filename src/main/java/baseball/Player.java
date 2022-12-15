@@ -8,49 +8,49 @@ import java.util.List;
 
 public class Player {
 
-    private List<Integer> guessNumbers = new ArrayList<>();
+    private List<Integer> guessNumber = new ArrayList<>();
 
     public void createGuessNumber(){
-        String guessNumbersForValid = readLine();
-        if(!isValidNumbers(guessNumbersForValid)){
+        String guessNumberForValid = readLine();
+        if(!isValidNumbers(guessNumberForValid)){
             throw new IllegalArgumentException();
         }
 
-        List<Integer> guessNumbers = new ArrayList<>();
+        List<Integer> guessNumber = new ArrayList<>();
 
         for(int i = 0; i < 3; i++) {
-            guessNumbers.add(guessNumbersForValid.charAt(i) - '0');
+            guessNumber.add(guessNumberForValid.charAt(i) - '0');
         }
 
-        this.guessNumbers = guessNumbers;
+        this.guessNumber = guessNumber;
     }
 
-    private boolean isValidNumbers(String guessNumbers) {
-        if(!isValidSize(guessNumbers) || !isValidScope(guessNumbers) || !isValidDifferentNumber(guessNumbers)){
+    private boolean isValidNumbers(String guessNumber) {
+        if(!isValidSize(guessNumber) || !isValidScope(guessNumber) || !isValidDifferentNumber(guessNumber)){
             return false;
         }
         return true;
     }
 
-    private boolean isValidDifferentNumber(String guessNumbers) {
+    private boolean isValidDifferentNumber(String guessNumber) {
         HashMap<Character, Integer> map = new HashMap<>();
-        for(int i = 0 ; i < guessNumbers.length(); i++){
-            if(map.containsKey(guessNumbers.charAt(i)))
+        for(int i = 0 ; i < guessNumber.length(); i++){
+            if(map.containsKey(guessNumber.charAt(i)))
                 return false;
-            map.put(guessNumbers.charAt(i), 1);
+            map.put(guessNumber.charAt(i), 1);
         }
         return true;
     }
 
-    private boolean isValidScope(String guessNumbers) {
+    private boolean isValidScope(String guessNumber) {
         for(int i = 0; i < 3; i++){
-            if(!(guessNumbers.charAt(i) >= '0' && guessNumbers.charAt(i) <= '9'))
+            if(!(guessNumber.charAt(i) >= '0' && guessNumber.charAt(i) <= '9'))
                 return false;
         }
         return true;
     }
 
-    private boolean isValidSize(String guessNumbers) {
-        return guessNumbers.length() == 3;
+    private boolean isValidSize(String guessNumber) {
+        return guessNumber.length() == 3;
     }
 }
