@@ -16,7 +16,7 @@ public class Player {
     public void createGuessNumber(){
         String guessNumberForValid = readLine();
         if(!isValidNumbers(guessNumberForValid)){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] ");
         }
 
         List<Integer> guessNumber = new ArrayList<>();
@@ -65,7 +65,7 @@ public class Player {
         } else if (restart.equals("2")) {
             return false;
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] ");
         }
     }
 }
