@@ -27,7 +27,22 @@ public class Computer {
     public boolean checkResult(List<Integer> guessNumber){
         int strikeCount = countStrike(guessNumber);
         int ballCount = countBall(guessNumber);
+
+        System.out.println(resultMessage(strikeCount, ballCount));
+
         return true;
+    }
+
+    private String resultMessage(int strikeCount, int ballCount) {
+        if (strikeCount > 0 && ballCount > 0) {
+            return ballCount + "볼" + " " + strikeCount + "스트라이크";
+        } else if (strikeCount > 0 && ballCount == 0) {
+            return strikeCount + "스트라이크";
+        } else if (strikeCount == 0 && ballCount > 0) {
+            return ballCount + "볼";
+        } else {
+            return "낫싱";
+        }
     }
 
     private int countBall(List<Integer> guessNumber) {
